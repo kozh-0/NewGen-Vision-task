@@ -10,17 +10,19 @@ let courses = [
 ];
 
 function filterArr(data, range = [0, Infinity]) {
+    const result = data.filter(el => (el.prices[0] >= range[0] && el.prices[0] <= range[1]) && (el.prices[1] <= range[1] && el.prices[1] >= range[0]));
+    console.log(result);
+    
     // if (range[0] === null) range[0] = 0;
     // if (range[1] === null) range[1] = Infinity;
 
-    const result = data.filter(el => {
-        // if (el.prices[0] === null) el.prices[0] = 0;
-        // if (el.prices[1] === null) el.prices[1] = Infinity - 1;
+    // const result = data.filter(el => {
+    //     if (el.prices[0] === null) el.prices[0] = 0;
+    //     if (el.prices[1] === null) el.prices[1] = Infinity - 1;
 
-        if ((el.prices[0] >= range[0] && el.prices[0] <= range[1]) && (el.prices[1] <= range[1] && el.prices[1] >= range[0])) {
-            return el;
-        }
-    });
-    console.log(result);
+    //     if ((el.prices[0] >= range[0] && el.prices[0] <= range[1]) && (el.prices[1] <= range[1] && el.prices[1] >= range[0])) {
+    //         return el;
+    //     }
+    // });
 }
-filterArr(courses, [0, 400]);
+filterArr(courses, [0, 200]);
